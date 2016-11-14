@@ -15,5 +15,5 @@ file(GLOB SOURCE_FILES
         "*/*.cpp"
         )
 
-add_executable(tokenwizard ${SOURCE_FILES} ${Boost_LIBRARIES})
+add_executable(tokenwizard ${SOURCE_FILES} ${Boost_LIBRARIES} HandlerSelector.h CommandHandler.h CommandHandlers/GetTokenCommandHandler.cpp CommandHandlers/GetTokenCommandHandler.h)
 TARGET_LINK_LIBRARIES (tokenwizard ${Boost_LIBRARIES})
