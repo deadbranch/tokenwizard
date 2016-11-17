@@ -4,7 +4,7 @@ project(tokenwizard)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread -O0")
 
 FIND_PACKAGE( Boost COMPONENTS system filesystem  REQUIRED )
-INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
+INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} "/work/")
 LINK_DIRECTORIES(convserv /usr/local/ssl/lib)
 list(APPEND CMAKE_MODULE_PATH "")
 

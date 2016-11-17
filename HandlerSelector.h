@@ -17,7 +17,7 @@ public:
         assignedHandlers[(unsigned char)token] = handlerPtr;
     }
 
-    CommandHandler* getParser(char token) {
+    CommandHandler* getHandler(char token) {
         assert(assignedHandlers[(unsigned char)token] != nullptr);
         return assignedHandlers[(unsigned char)token];
     }

@@ -12,81 +12,80 @@
 extern HandlerSelector handlerSelector;
 
 class TcpSession: public std::enable_shared_from_this<TcpSession> {
-    boost::asio::io_service& mIoService;
+    boost::asio::io_service &mIoService;
     tcp::socket mSocket;
     enum {
         maxLength = 65536
     };
     char mData[maxLength];
 
-    void HandleCmd(char* bytes, size_t size) {
-        auto handlerPtr = handlerSelector.getParser(*bytes);
+    void handlePacket(char *bytes, size_t size) {
+        auto handlerPtr = handlerSelector.getHandler(*bytes);
         assert(handlerPtr);
-        if(handlerPtr)
+        if (handlerPtr)
             handlerPtr->Handle(bytes, size, *this);
     }
 
-    char* writeOffset;
-    char* readOffset;
-
+    char *writeOffset;
+    char *readOffset;
     size_t currSize = 0;
 
-    void HandleRead(size_t written) {
+    void readHandler(size_t written) {
         currSize += written;
         writeOffset += written;
-        while(true) {
+        while (true) {
             uint32_t packetSize = fixEndianness(*reinterpret_cast<uint32_t *>(readOffset));
             if ((packetSize + 4) <= currSize) {
-                HandleCmd(readOffset + 4, packetSize);
+                handlePacket(readOffset + 4, packetSize);
                 readOffset += 4 + packetSize;
                 currSize -= 4 + packetSize;
-            }
-            else
+            } else
                 break;
         }
-        if(currSize) {
+        if (currSize) {
             memmove(mData, readOffset, currSize);
         }
         readOffset = mData;
-        writeOffset = readOffset+currSize;
+        writeOffset = readOffset + currSize;
     }
 
-    void do_read()
-    {
+    void read_loop() {
         auto self(shared_from_this());
         mSocket.async_read_some(boost::asio::buffer(writeOffset, maxLength - currSize),
-                                [this, self](boost::system::error_code ec, std::size_t length)
-                                {
-                                    if (!ec)
-                                    {
-                                        HandleRead(length);
-                                        do_read();
+                                [this, self](boost::system::error_code ec, std::size_t length) {
+                                    if (!ec) {
+                                        readHandler(length);
+                                        read_loop();
                                     }
                                 });
     }
 
 
 public:
-    template <class T>
-    void SendPacket(Packet* packet, T&& smart_pointer);
+    template<class T>
+    void SendPacket(Packet *packet, T &&smart_pointer) {
+        auto self = shared_from_this();
+        boost::asio::async_write(mSocket, boost::asio::buffer(packet -> data(), packet->size()),
+                                 [self, packet, smart_pointer](boost::system::error_code ec, std::size_t l)
+                                 {
+                                     if (!ec) {
+                                         cout << "Sent!" << endl;
+                                     }
+                                 });
+    }
+    void SendPacket(Packet *packet) {
+        auto self = shared_from_this();
+        boost::asio::async_write(mSocket, boost::asio::buffer(packet -> data(), packet->size()),
+                                 [self, packet](boost::system::error_code ec, std::size_t l)
+                                 {
+                                     if (!ec) {
+                                         cout << "Sent!" << endl;
+                                     }
+                                 });
+    }
     TcpSession(tcp::socket socket, boost::asio::io_service& _io_service);
     void BeginCommunication();
     ~TcpSession();
 };
 
-/*
- *
-    void do_write(std::size_t length)
-    {
-        auto self(shared_from_this());
-        boost::asio::async_write(mSocket, boost::asio::buffer(mData, length),
-                                 [this, self](boost::system::error_code ec, std::size_t )
-                                 {
-                                     if (!ec)
-                                     {
-                                         do_read();
-                                     }
-                                 });
-    }
- * */
 #endif //TOKENWIZARD_SESSION_H

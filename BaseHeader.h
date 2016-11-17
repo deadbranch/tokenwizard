@@ -27,7 +27,7 @@ using std::endl;
 #include <boost/make_shared.hpp>
 #include <boost/asio.hpp>
 
-#include "../../concurrent-guard/cg_shared_ptr.h"
+#include "concurrent-guard/cg_shared_ptr.h"
 
 using boost::make_shared;
 using boost::asio::ip::tcp;

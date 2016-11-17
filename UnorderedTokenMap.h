@@ -48,7 +48,14 @@ public:
 
     cg_shared_ptr<Token<tokenLength>> try_get(char* token) {
         uint32_t offset = Int32Encoder::decode64Based(token);
-        return table[offset].try_get();
+        if(offset >= mSize)
+            return nullptr;
+        auto res = table[offset].try_get();
+        if (res) {
+            if(strcmp(token,  res->token) != 0)
+                res = nullptr;
+        }
+        return res;
     }
 };
 
