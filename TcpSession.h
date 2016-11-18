@@ -69,7 +69,7 @@ public:
                                  [self, packet, smart_pointer](boost::system::error_code ec, std::size_t l)
                                  {
                                      if (!ec) {
-                                         cout << "Sent!" << endl;
+                                         //cout << "Sent!" << endl;
                                      }
                                  });
     }

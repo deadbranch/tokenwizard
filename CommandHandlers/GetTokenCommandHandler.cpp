@@ -10,14 +10,14 @@ extern Packet tokenDoesNotExistsPacket;
 
 void GetTokenCommandHandler::Handle(char *bytes, size_t size, TcpSession &sessionContext) {
     //Deserialize
-    cout << "GetToken" << endl;
+    //cout << "GetToken" << endl;
     char* token = bytes + 1;
-    cout << token << endl;
+    //cout << token << endl;
 
     //Handle
     auto ptr = tokenMap.try_get(token);
     if(ptr) {
-        cout << "token exists" << endl;
+//        cout << "token exists" << endl;
         sessionContext.SendPacket<decltype(ptr)>(ptr->data, move(ptr));
     }
     else {

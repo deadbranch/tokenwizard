@@ -4,7 +4,7 @@
 enum class ServerResponse: char {
     tokenCreated = 0x0,
     tokenDestroyed = 0x1,
-    tokenDoesNotExists = 0x2,
+    tokenDoesNotExist = 0x2,
     tokenExists = 0x3,
 };
 

@@ -15,16 +15,10 @@
     <list default="true" id="6270edb8-7805-4b6e-b92c-e8cbcbedbbbb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/tokenwizard.iml" afterPath="$PROJECT_DIR$/.idea/tokenwizard.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseHeader.h" afterPath="$PROJECT_DIR$/BaseHeader.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CommandHandlers/GetTokenCommandHandler.cpp" afterPath="$PROJECT_DIR$/CommandHandlers/GetTokenCommandHandler.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CommandHandlers/GetTokenCommandHandler.h" afterPath="$PROJECT_DIR$/CommandHandlers/GetTokenCommandHandler.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HandlerSelector.h" afterPath="$PROJECT_DIR$/HandlerSelector.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TcpSession.cpp" afterPath="$PROJECT_DIR$/TcpSession.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServerResponses.h" afterPath="$PROJECT_DIR$/ServerResponses.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TcpSession.h" afterPath="$PROJECT_DIR$/TcpSession.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UnorderedTokenMap.h" afterPath="$PROJECT_DIR$/UnorderedTokenMap.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/misc/IntPow.h" afterPath="$PROJECT_DIR$/misc/IntPow.h" />
     </list>
     <ignored path="tokenwizard.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,38 +38,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TcpSession.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TcpSession.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="2" selection-start-line="0" selection-start-column="2" selection-end-line="47" selection-end-column="8" />
-              <folding>
-                <element signature="e#102#125#0" expanded="true" />
-                <element signature="e#1868#1877#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="epoll_reactor.ipp" pinned="false" current-in-tab="true">
         <entry file="file:///usr/include/boost/asio/detail/impl/epoll_reactor.ipp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7038">
+            <state relative-caret-position="122">
               <caret line="391" column="0" selection-start-line="391" selection-start-column="0" selection-end-line="391" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetTokenCommandHandler.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CommandHandlers/GetTokenCommandHandler.h">
+      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+            <state relative-caret-position="54">
+              <caret line="3" column="63" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="task_io_service.ipp" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/include/boost/asio/detail/impl/task_io_service.ipp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="122">
+              <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerResponses.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ServerResponses.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
               <folding>
-                <element signature="e#91#121#0" expanded="true" />
-                <element signature="e#187#225#0" expanded="true" />
+                <marker date="1479455806529" expanded="true" signature="109:214" ph="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="socket_ops.ipp" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/include/boost/asio/detail/impl/socket_ops.ipp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="122">
+              <caret line="1169" column="0" selection-start-line="1169" selection-start-column="0" selection-end-line="1169" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="completion_condition.hpp" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/include/boost/asio/completion_condition.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="122">
+              <caret line="139" column="0" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -86,8 +106,13 @@
             <state relative-caret-position="900">
               <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding>
-                <element signature="e#85#108#0" expanded="true" />
-                <element signature="e#247#285#0" expanded="true" />
+                <marker date="1479389120446" expanded="true" signature="94:236" ph="..." />
+                <marker date="1479389120446" expanded="true" signature="238:285" ph="&lt;int tokenLength,int mapSizeExponent&gt;" />
+                <marker date="1479389120446" expanded="true" signature="310:1888" ph="{...}" />
+                <marker date="1479389120446" expanded="true" signature="426:542" ph="{...}" />
+                <marker date="1479389120446" expanded="true" signature="631:748" ph="{...}" />
+                <marker date="1479389120446" expanded="true" signature="826:1528" ph="{...}" />
+                <marker date="1479389120446" expanded="true" signature="1589:1886" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -96,41 +121,12 @@
       <file leaf-file-name="GetTokenCommandHandler.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CommandHandlers/GetTokenCommandHandler.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+            <state relative-caret-position="252">
+              <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="15" selection-end-column="0" />
               <folding>
-                <element signature="e#41#76#0" expanded="true" />
+                <marker date="1479390845896" expanded="true" signature="50:137" ph="..." />
+                <marker date="1479390845896" expanded="true" signature="270:691" ph="{...}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="atomic_base.h" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/c++/5/bits/atomic_base.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4698">
-              <caret line="261" column="0" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="concurrent_guard.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../concurrent-guard/concurrent_guard.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1620">
-              <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cg_shared_ptr.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../concurrent-guard/cg_shared_ptr.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -148,10 +144,10 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="31" />
+            <state relative-caret-position="468">
+              <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
+                <marker date="1479455806521" expanded="true" signature="9:335" ph="..." />
               </folding>
             </state>
           </provider>
@@ -173,7 +169,6 @@
         <option value="$PROJECT_DIR$/serialization/RTSVector.h" />
         <option value="$PROJECT_DIR$/SessionHashTable.h" />
         <option value="$PROJECT_DIR$/SessionUnorderedMap.h" />
-        <option value="$PROJECT_DIR$/ServerResponses.h" />
         <option value="$PROJECT_DIR$/GenToken.cpp" />
         <option value="$PROJECT_DIR$/GenToken.h" />
         <option value="$PROJECT_DIR$/TokenRecord.h" />
@@ -193,16 +188,17 @@
         <option value="$PROJECT_DIR$/TokenServer.cpp" />
         <option value="$PROJECT_DIR$/HandlerSelector.h" />
         <option value="$PROJECT_DIR$/CommandHandler.h" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/BaseHeader.h" />
         <option value="$PROJECT_DIR$/misc/IntPow.h" />
         <option value="$PROJECT_DIR$/CommandHandlers/GetTokenCommandHandler.h" />
         <option value="$PROJECT_DIR$/TcpSession.cpp" />
         <option value="$PROJECT_DIR$/../concurrent-guard/cg_shared_ptr.h" />
-        <option value="$PROJECT_DIR$/TcpSession.h" />
         <option value="$PROJECT_DIR$/main.cpp" />
-        <option value="$PROJECT_DIR$/CommandHandlers/GetTokenCommandHandler.cpp" />
         <option value="$PROJECT_DIR$/UnorderedTokenMap.h" />
+        <option value="$PROJECT_DIR$/CommandHandlers/GetTokenCommandHandler.cpp" />
+        <option value="$PROJECT_DIR$/TcpSession.h" />
+        <option value="$PROJECT_DIR$/ServerResponses.h" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
   </component>
@@ -214,10 +210,10 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="24" />
-    <option name="width" value="1301" />
-    <option name="height" value="744" />
+    <option name="x" value="121" />
+    <option name="y" value="67" />
+    <option name="width" value="1454" />
+    <option name="height" value="758" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -527,27 +523,31 @@
       <workItem from="1479303491394" duration="2578000" />
       <workItem from="1479306590401" duration="2758000" />
       <workItem from="1479375504273" duration="1715000" />
+      <workItem from="1479389208577" duration="1746000" />
+      <workItem from="1479391381564" duration="21000" />
+      <workItem from="1479391636452" duration="2285000" />
+      <workItem from="1479455267666" duration="6435000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71740000" />
+    <option name="totallyTimeSpent" value="82227000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="false" />
+    <frame x="121" y="67" width="1454" height="758" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2528824" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25227115" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3213752" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3212121" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32923076" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884902" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3287879" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39760837" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3969697" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -575,31 +575,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Definitions.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UnorderedTokenMap.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-          <folding>
-            <element signature="e#85#108#0" expanded="true" />
-            <element signature="e#247#285#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="14" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/serialization/Packet.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -744,24 +719,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ServerResponses.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/include/boost/asio/detail/bind_handler.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/boost/asio/detail/impl/socket_ops.ipp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="783" column="0" selection-start-line="783" selection-start-column="0" selection-end-line="783" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -807,18 +768,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="49" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CommandHandler.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -836,13 +789,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///usr/include/c++/5/bits/atomic_base.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4698">
+          <caret line="261" column="0" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../concurrent-guard/concurrent_guard.h" />
+    <entry file="file://$PROJECT_DIR$/../concurrent-guard/cg_shared_ptr.h" />
     <entry file="file://$PROJECT_DIR$/TcpSession.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="2" selection-start-line="0" selection-start-column="2" selection-end-line="47" selection-end-column="8" />
+        <state relative-caret-position="1278">
+          <caret line="71" column="43" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
           <folding>
-            <element signature="e#102#125#0" expanded="true" />
-            <element signature="e#1868#1877#0" expanded="true" />
+            <marker date="1479390899630" expanded="true" signature="111:188" ph="..." />
+            <marker date="1479390899630" expanded="true" signature="297:3037" ph="{...}" />
+            <marker date="1479390899630" expanded="true" signature="374:407" ph="{...}" />
+            <marker date="1479390899630" expanded="true" signature="485:658" ph="{...}" />
+            <marker date="1479390899630" expanded="true" signature="768:1356" ph="{...}" />
+            <marker date="1479390899630" expanded="true" signature="1379:1845" ph="{...}" />
+            <marker date="1479390899630" expanded="true" signature="1860:1877" ph="&lt;T&gt;" />
+            <marker date="1479390899630" expanded="true" signature="1933:2412" ph="{...}" />
+            <marker date="1479390899630" expanded="true" signature="2449:2911" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -851,7 +820,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1479389120446" expanded="true" signature="167:268" ph="{...}" />
+            <marker date="1479389120446" expanded="true" signature="296:350" ph="{...}" />
+            <marker date="1479389120446" expanded="true" signature="390:410" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -860,8 +833,9 @@
         <state relative-caret-position="126">
           <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
           <folding>
-            <element signature="e#91#121#0" expanded="true" />
-            <element signature="e#187#225#0" expanded="true" />
+            <marker date="1479389120446" expanded="true" signature="100:176" ph="..." />
+            <marker date="1479389120446" expanded="true" signature="178:225" ph="&lt;int tokenLength,int mapSizeExponent&gt;" />
+            <marker date="1479389120446" expanded="true" signature="357:439" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -871,43 +845,25 @@
         <state relative-caret-position="900">
           <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding>
-            <element signature="e#85#108#0" expanded="true" />
-            <element signature="e#247#285#0" expanded="true" />
+            <marker date="1479389120446" expanded="true" signature="94:236" ph="..." />
+            <marker date="1479389120446" expanded="true" signature="238:285" ph="&lt;int tokenLength,int mapSizeExponent&gt;" />
+            <marker date="1479389120446" expanded="true" signature="310:1888" ph="{...}" />
+            <marker date="1479389120446" expanded="true" signature="426:542" ph="{...}" />
+            <marker date="1479389120446" expanded="true" signature="631:748" ph="{...}" />
+            <marker date="1479389120446" expanded="true" signature="826:1528" ph="{...}" />
+            <marker date="1479389120446" expanded="true" signature="1589:1886" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CommandHandlers/GetTokenCommandHandler.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+        <state relative-caret-position="252">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="e#41#76#0" expanded="true" />
+            <marker date="1479390845896" expanded="true" signature="50:137" ph="..." />
+            <marker date="1479390845896" expanded="true" signature="270:691" ph="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/c++/5/bits/atomic_base.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4698">
-          <caret line="261" column="0" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../concurrent-guard/concurrent_guard.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1620">
-          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../concurrent-guard/cg_shared_ptr.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -921,17 +877,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="31" />
+        <state relative-caret-position="468">
+          <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <marker date="1479455806521" expanded="true" signature="9:335" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ServerResponses.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+          <folding>
+            <marker date="1479455806529" expanded="true" signature="109:214" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/boost/asio/impl/io_service.ipp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/boost/asio/detail/impl/task_io_service.ipp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/boost/asio/completion_condition.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="139" column="0" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="63" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/boost/asio/detail/impl/socket_ops.ipp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="1169" column="0" selection-start-line="1169" selection-start-column="0" selection-end-line="1169" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file:///usr/include/boost/asio/detail/impl/epoll_reactor.ipp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7038">
+        <state relative-caret-position="122">
           <caret line="391" column="0" selection-start-line="391" selection-start-column="0" selection-end-line="391" selection-end-column="0" />
           <folding />
         </state>
