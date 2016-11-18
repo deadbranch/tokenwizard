@@ -16,7 +16,7 @@ public:
         RandomFiller<tokenLength>::fillString(token+6);
     }
     shared_ptr<Packet> tokenInfo() {
-        shared_ptr<Packet> packetPtr = std::make_shared<Packet>(ServerResponse::tokenCreated, tokenLength+7);
+        shared_ptr<Packet> packetPtr = std::make_shared<Packet>((char)ServerResponse::tokenCreated, tokenLength+7);
         memcpy(packetPtr->data()+5, token, tokenLength + 7);
         packetPtr->serialize();
         return packetPtr;

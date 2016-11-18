@@ -3,25 +3,27 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/TcpSession.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/RandomFiller.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Int32Encoder.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/CommandHandlers/GetTokenCommandHandler.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/CommandHandlers/GetTokenCommandHandler.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ServerResponses.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Token.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseHeader.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/ClientCommands.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/CommandHandler.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Int32Encoder.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/TcpSession.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/TokenServer.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/misc/IntPow.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Definitions.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Int32Encoder.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/TokenServer.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/ServerResponses.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UnorderedTokenMap.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CommandHandler.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TokenServer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Definitions.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ClientCommands.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/HandlerSelector.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/RandomFiller.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CommandHandlers/GetTokenCommandHandler.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CommandHandlers/GenTokenCommandHandler.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CommandHandlers/GenTokenCommandHandler.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CommandHandlers/GetTokenCommandHandler.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/RandomFiller.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/serialization/Packet.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/serialization/BaseSerialization.h" isTestSource="false" />
@@ -30,14 +32,14 @@
     <orderEntry type="module-library">
       <library name="Header Search Paths">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../.." />
+          <root url="file://$MODULE_DIR$/.." />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include" />
           <root url="file:///usr/include" />
           <root url="file:///usr/local/include" />
         </CLASSES>
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../.." />
+          <root url="file://$MODULE_DIR$/.." />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include" />
           <root url="file:///usr/include" />

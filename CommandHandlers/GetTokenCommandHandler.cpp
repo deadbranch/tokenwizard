@@ -6,7 +6,7 @@
 #include "../UnorderedTokenMap.h"
 #include "../TcpSession.h"
 
-extern Packet tokenDoesNotExistsPacket;
+extern Packet tokenDoesNotExistPacket;
 
 void GetTokenCommandHandler::Handle(char *bytes, size_t size, TcpSession &sessionContext) {
     //Deserialize
@@ -22,6 +22,6 @@ void GetTokenCommandHandler::Handle(char *bytes, size_t size, TcpSession &sessio
     }
     else {
         cout << "Unknown token" << endl;
-        sessionContext.SendPacket(&tokenDoesNotExistsPacket);
+        sessionContext.SendPacket(&tokenDoesNotExistPacket);
     }
 }

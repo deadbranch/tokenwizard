@@ -3,6 +3,9 @@ project(tokenwizard)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread -O0")
 
+#list(APPEND CMAKE_MODULE_PATH "FindTBB.cmake")
+#find_package(TBB COMPONENTS tbbmalloc tbbmalloc_proxy tbb_preview)
+
 FIND_PACKAGE( Boost COMPONENTS system filesystem  REQUIRED )
 INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} "/work/")
 LINK_DIRECTORIES(convserv /usr/local/ssl/lib)
@@ -15,5 +18,5 @@ file(GLOB SOURCE_FILES
         "*/*.cpp"
         )
 
-add_executable(tokenwizard ${SOURCE_FILES} ${Boost_LIBRARIES} HandlerSelector.h CommandHandler.h CommandHandlers/GetTokenCommandHandler.cpp CommandHandlers/GetTokenCommandHandler.h)
+add_executable(tokenwizard ${SOURCE_FILES} ${Boost_LIBRARIES} HandlerSelector.h CommandHandler.h CommandHandlers/GetTokenCommandHandler.cpp CommandHandlers/GetTokenCommandHandler.h CommandHandlers/GenTokenCommandHandler.cpp CommandHandlers/GenTokenCommandHandler.h)
 TARGET_LINK_LIBRARIES (tokenwizard ${Boost_LIBRARIES})

@@ -18,7 +18,7 @@ UnorderedTokenMap<TOKEN_LENGTH, 5> tokenMap;
 HandlerSelector handlerSelector;
 
 Packet tokenDestroyedPacket((char)ServerResponse::tokenDestroyed);
-Packet tokenDoesNotExistsPacket((char)ServerResponse::tokenDoesNotExist);
+Packet tokenDoesNotExistPacket((char)ServerResponse::tokenDoesNotExist);
 
 volatile char c;
 int main(int argc, char* argv[]) {
