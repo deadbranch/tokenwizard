@@ -6,7 +6,6 @@ void TokenServer::acceptLoop() {
     mAcceptor.async_accept(mCurrSocket,
                            [this, pSelectedWorker](boost::system::error_code ec)
                            {
-                               cout << "acceptor:" << std::this_thread::get_id()<< endl;
                                if (!ec)
                                {
                                    std::make_shared<TcpSession>(std::move(mCurrSocket), pSelectedWorker)->BeginCommunication();

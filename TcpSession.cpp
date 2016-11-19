@@ -15,9 +15,6 @@ TcpSession::~TcpSession() {
 
 void TcpSession::BeginCommunication() {
     auto self = shared_from_this();
-    myWorker->workerService->post([]() {
-        cout << "direct post: " << std::this_thread::get_id()<< endl;
-    });
     myWorker->workerService->post([this, self]()
                     {
                         read_loop();

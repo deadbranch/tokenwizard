@@ -14,12 +14,9 @@ void GetTokenCommandHandler::Handle(char *bytes, size_t size, TcpSession &sessio
     //cout << "GetToken" << endl;
     char* token = bytes + 1;
     //cout << token << endl;
-
-    cout << "get_token:" << std::this_thread::get_id()<< endl;
-
     //Handle
     auto ptr = tokenMap.try_get(token);
-    if(ptr && ptr->isEnabled) {
+    if(ptr && ptr->timeToDie) {
 //        cout << "token exists" << endl;
         sessionContext.SendPacket<decltype(ptr)>(ptr->data, move(ptr));
     }

@@ -26,6 +26,7 @@ public:
     cg_shared_ptr<Token<tokenLength>> genToken(const char* data, size_t len) {
         Packet* dataPacket = new Packet((char)ServerResponse::tokenExists, len);
         memcpy(dataPacket->data()+5, data, len);
+        char* d  = dataPacket->data()+5;
         dataPacket->serialize();
 
         while(true) {

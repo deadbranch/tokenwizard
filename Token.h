@@ -4,14 +4,16 @@
 #include "BaseHeader.h"
 #include "Int32Encoder.h"
 #include "RandomFiller.h"
+#include "ServerResponses.h"
 
 template <size_t tokenLength>
 class Token {
 public:
     Packet* data;
     char token[tokenLength+7];
-    bool isEnabled = true;
+    time_t timeToDie;
     Token(uint32_t val, Packet* _dataPacket): data(_dataPacket) {
+        timeToDie = time(0) + TOKEN_TTL;
         token[tokenLength+6] = '\0';
         Int32Encoder::encode64Based(val, token);
         RandomFiller<tokenLength>::fillString(token+6);

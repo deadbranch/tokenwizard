@@ -13,7 +13,6 @@
 extern HandlerSelector handlerSelector;
 
 class TcpSession: public std::enable_shared_from_this<TcpSession> {
-    Worker* myWorker;
     tcp::socket mSocket;
     enum {
         maxLength = 65536
@@ -63,6 +62,7 @@ class TcpSession: public std::enable_shared_from_this<TcpSession> {
 
 
 public:
+    Worker* myWorker;
     template<class T>
     void SendPacket(Packet *packet, T &&smart_pointer) {
         auto self = shared_from_this();
