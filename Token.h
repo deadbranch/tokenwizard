@@ -10,6 +10,7 @@ class Token {
 public:
     Packet* data;
     char token[tokenLength+7];
+    bool isEnabled = true;
     Token(uint32_t val, Packet* _dataPacket): data(_dataPacket) {
         token[tokenLength+6] = '\0';
         Int32Encoder::encode64Based(val, token);

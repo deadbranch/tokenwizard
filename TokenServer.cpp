@@ -1,13 +1,16 @@
 #include "TokenServer.h"
 
-void TokenServer::doAccept() {
-    mAcceptor.async_accept(mSocket,
-                           [this](boost::system::error_code ec)
+void TokenServer::acceptLoop() {
+    auto pSelectedWorker = getNextWorker();
+    mCurrSocket = tcp::socket(*pSelectedWorker->workerService);
+    mAcceptor.async_accept(mCurrSocket,
+                           [this, pSelectedWorker](boost::system::error_code ec)
                            {
+                               cout << "acceptor:" << std::this_thread::get_id()<< endl;
                                if (!ec)
                                {
-                                   std::make_shared<TcpSession>(std::move(mSocket), mIoService)->BeginCommunication();
+                                   std::make_shared<TcpSession>(std::move(mCurrSocket), pSelectedWorker)->BeginCommunication();
                                }
-                               doAccept();
+                               acceptLoop();
                            });
 }

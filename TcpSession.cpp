@@ -1,7 +1,8 @@
+#include <thread>
 #include "TcpSession.h"
 
-TcpSession::TcpSession(tcp::socket socket, boost::asio::io_service &_io_service):
-        mSocket(std::move(socket)), mIoService(_io_service)
+TcpSession::TcpSession(tcp::socket socket, Worker* myWorker):
+        mSocket(std::move(socket)), myWorker(myWorker)
 {
     writeOffset = mData;
     readOffset = mData;
@@ -13,5 +14,13 @@ TcpSession::~TcpSession() {
 }
 
 void TcpSession::BeginCommunication() {
-    read_loop();
+    auto self = shared_from_this();
+    myWorker->workerService->post([]() {
+        cout << "direct post: " << std::this_thread::get_id()<< endl;
+    });
+    myWorker->workerService->post([this, self]()
+                    {
+                        read_loop();
+                    }
+    );
 }

@@ -8,11 +8,12 @@
 #include "BaseHeader.h"
 #include "serialization/Packet.h"
 #include "HandlerSelector.h"
+#include "Worker.h"
 
 extern HandlerSelector handlerSelector;
 
 class TcpSession: public std::enable_shared_from_this<TcpSession> {
-    boost::asio::io_service &mIoService;
+    Worker* myWorker;
     tcp::socket mSocket;
     enum {
         maxLength = 65536
@@ -83,7 +84,7 @@ public:
                                      }
                                  });
     }
-    TcpSession(tcp::socket socket, boost::asio::io_service& _io_service);
+    TcpSession(tcp::socket socket, Worker* myWorker);
     void BeginCommunication();
     ~TcpSession();
 };

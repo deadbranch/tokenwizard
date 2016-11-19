@@ -2,6 +2,7 @@
 // Created by origin on 14.11.16.
 //
 
+#include <thread>
 #include "GetTokenCommandHandler.h"
 #include "../UnorderedTokenMap.h"
 #include "../TcpSession.h"
@@ -14,13 +15,16 @@ void GetTokenCommandHandler::Handle(char *bytes, size_t size, TcpSession &sessio
     char* token = bytes + 1;
     //cout << token << endl;
 
+    cout << "get_token:" << std::this_thread::get_id()<< endl;
+
     //Handle
     auto ptr = tokenMap.try_get(token);
-    if(ptr) {
+    if(ptr && ptr->isEnabled) {
 //        cout << "token exists" << endl;
         sessionContext.SendPacket<decltype(ptr)>(ptr->data, move(ptr));
     }
     else {
+        cout << token << endl;
         cout << "Unknown token" << endl;
         sessionContext.SendPacket(&tokenDoesNotExistPacket);
     }
