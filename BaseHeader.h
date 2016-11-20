@@ -26,11 +26,15 @@ using std::endl;
 #include <boost/shared_ptr.hpp>
 #include <boost/make_shared.hpp>
 #include <boost/asio.hpp>
+#include <alien.pm/tokenwizard/serialization/PacketBuffer.h>
 
 #include "concurrent-guard/cg_shared_ptr.h"
+#include "Definitions.h"
 
 using boost::make_shared;
 using boost::asio::ip::tcp;
+
+typedef PacketBuffer<PACKET_BUFFER_SIZE> PBuff;
 
 
 #endif //TOKENWIZARD_BASEHEADER_H

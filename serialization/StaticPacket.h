@@ -1,14 +1,17 @@
+#ifndef TOKENWIZARD_STATICPACKET_H
+#define TOKENWIZARD_STATICPACKET_H
+
 #ifndef TTT_SERVER_RTSVECTOR_H
 #define TTT_SERVER_RTSVECTOR_H
 
 #include "../BaseHeader.h"
 #include "BaseSerialization.h"
 
-class Packet: public vector<char> {
+class StaticPacket: public vector<char> {
 private:
 public:
     //Packet(): vector<char>(4) {    }
-    Packet(char token, size_t expectedSize = 0): vector<char>(5+expectedSize) {
+    StaticPacket(char token, size_t expectedSize = 0): vector<char>(5+expectedSize) {
         this->operator[](4) = token;
     }
 
@@ -29,3 +32,5 @@ public:
 };
 
 #endif //TTT_SERVER_RTSVECTOR_H
+
+#endif //TOKENWIZARD_STATICPACKET_H

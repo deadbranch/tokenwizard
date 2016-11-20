@@ -2,12 +2,12 @@
 #define TOKENWIZARD_SESSIONUNORDEREDMAP_H
 
 #include "BaseHeader.h"
-#include "serialization/Packet.h"
 #include "misc/IntPow.h"
 #include "ServerResponses.h"
 #include "Token.h"
 
 #include <stdlib.h>
+#include "serialization/StaticPacket.h"
 
 template <int tokenLength, int mapSizeExponent>
 class UnorderedTokenMap {
@@ -24,11 +24,12 @@ public:
         table = new concurrent_guard<Token<tokenLength>>[mSize];
     }
     cg_shared_ptr<Token<tokenLength>> genToken(const char* data, size_t len) {
-        Packet* dataPacket = new Packet((char)ServerResponse::tokenExists, len);
+        StaticPacket* dataPacket = new StaticPacket((char)ServerResponse::tokenExists, len);
         memcpy(dataPacket->data()+5, data, len);
         char* d  = dataPacket->data()+5;
-        dataPacket->serialize();
+        int  a = dataPacket->size();
 
+        dataPacket->serialize();
         while(true) {
             uint offset;
             do {

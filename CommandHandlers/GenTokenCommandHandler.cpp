@@ -1,3 +1,4 @@
+#include <alien.pm/tokenwizard/ClientCommands.h>
 #include "GenTokenCommandHandler.h"
 #include "../UnorderedTokenMap.h"
 #include "../TcpSession.h"
@@ -7,7 +8,8 @@ void GenTokenCommandHandler::Handle(char *bytes, size_t size, TcpSession &sessio
     size_t dataLength = size - 1;
     auto ptr = tokenMap.genToken(data, dataLength);
     cout << "Generated: " << ptr->token << endl;
-    shared_ptr<Packet> infoPtr = ptr->tokenInfo();
-    sessionContext.SendPacket<shared_ptr<Packet>>(infoPtr.get(), move(infoPtr));
+    ptr->writeTokenInfo(sessionContext.getPacketBuffer(TOKEN_LENGTH+8+4));
+    //shared_ptr<StaticPacket> infoPtr = ptr->tokenInfo();
+    //sessionContext.writeStaticPacket(*infoPtr.get());
     sessionContext.myWorker->pushRemoveTask(move(ptr));
 }

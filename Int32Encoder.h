@@ -2,7 +2,6 @@
 #define TOKENWIZARD_INT32ENCODER_H
 
 #include "BaseHeader.h"
-#include "serialization/Packet.h"
 
 class Int32Encoder {
     static char encodeMap[];

@@ -3,7 +3,6 @@
 
 #include "BaseHeader.h"
 #include "Definitions.h"
-#include "serialization/Packet.h"
 
 extern const char alphabet[63];
 

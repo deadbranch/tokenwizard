@@ -1,5 +1,6 @@
 #include <iostream>
 #include <alien.pm/tokenwizard/CommandHandlers/GenTokenCommandHandler.h>
+#include <mutex>
 #include "serialization/BaseSerialization.h"
 #include "TokenServer.h"
 #include "ClientCommands.h"
@@ -10,6 +11,7 @@
 #include "RandomFiller.h"
 #include "HandlerSelector.h"
 #include "CommandHandlers/GetTokenCommandHandler.h"
+#include <boost/thread/once.hpp>
 
 bool myEndianness = detectEndianness();
 
@@ -18,18 +20,39 @@ boost::asio::io_service primary_io_service;
 UnorderedTokenMap<TOKEN_LENGTH, 5> tokenMap;
 HandlerSelector handlerSelector;
 
-Packet tokenDestroyedPacket((char)ServerResponse::tokenDestroyed);
-Packet tokenDoesNotExistPacket((char)ServerResponse::tokenDoesNotExist);
+StaticPacket tokenDestroyedPacket((char)ServerResponse::tokenDestroyed);
+StaticPacket tokenDoesNotExistPacket((char)ServerResponse::tokenDoesNotExist);
 
 volatile char c;
+
+class C {
+public:
+    C() {
+        cout<< "C()" <<endl;
+    }
+    ~C() {
+        cout<< "~C()" <<endl;
+    }
+};
 int main(int argc, char* argv[]) {
+    cout << sizeof(boost::once_flag) << endl;
+    auto ptr = cg.try_set(new C());
+    {
+        auto ptr_get1 = cg.try_get();
+        if(ptr_get1)
+            cg.unsafe_decrease_counter();
+        ptr_get1 = nullptr;
+        auto ptr_get2 = cg.try_get();
+        if(ptr_get2)
+            cg.unsafe_decrease_counter();
+    }
     tokenDestroyedPacket.serialize();
     tokenDoesNotExistPacket.serialize();
 
     handlerSelector.assignHandler((char)ClientCommand::getToken, new GetTokenCommandHandler());
     handlerSelector.assignHandler((char)ClientCommand::genToken, new GenTokenCommandHandler());
 
-    string data = "lalkasffsdfsdfsadfsdaklfjsalkfjlsdajflsdkjfkldf";
+    string data = "123456789";
     auto res = tokenMap.genToken(data.c_str(), data.size());
     cout << res->token << endl;
 

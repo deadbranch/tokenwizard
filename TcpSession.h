@@ -1,14 +1,10 @@
-//
-// Created by origin on 29.10.16.
-//
-
 #ifndef TOKENWIZARD_SESSION_H
 #define TOKENWIZARD_SESSION_H
 
 #include "BaseHeader.h"
-#include "serialization/Packet.h"
 #include "HandlerSelector.h"
 #include "Worker.h"
+
 
 extern HandlerSelector handlerSelector;
 
@@ -18,72 +14,40 @@ class TcpSession: public std::enable_shared_from_this<TcpSession> {
         maxLength = 65536
     };
     char mData[maxLength];
-
-    void handlePacket(char *bytes, size_t size) {
-        auto handlerPtr = handlerSelector.getHandler(*bytes);
-        assert(handlerPtr);
-        if (handlerPtr)
-            handlerPtr->Handle(bytes, size, *this);
-    }
-
+    void handlePacket(char *bytes, size_t size);
     char *writeOffset;
     char *readOffset;
     size_t currSize = 0;
+    bool sendDaemonStarted = false;
+    boost::posix_time::milliseconds mSendInterval;
+    boost::asio::deadline_timer* timer;
 
-    void readHandler(size_t written) {
-        currSize += written;
-        writeOffset += written;
-        while (true) {
-            uint32_t packetSize = fixEndianness(*reinterpret_cast<uint32_t *>(readOffset));
-            if ((packetSize + 4) <= currSize) {
-                handlePacket(readOffset + 4, packetSize);
-                readOffset += 4 + packetSize;
-                currSize -= 4 + packetSize;
-            } else
-                break;
-        }
-        if (currSize) {
-            memmove(mData, readOffset, currSize);
-        }
-        readOffset = mData;
-        writeOffset = readOffset + currSize;
+    void sendDaemonTick() {
+        sendDaemonStarted = false;
+        if(currentBuffer->currSize)
+            replacePBuff();
+        std::cout << "sd tick" << std::endl;
     }
 
-    void read_loop() {
-        auto self(shared_from_this());
-        mSocket.async_read_some(boost::asio::buffer(writeOffset, maxLength - currSize),
-                                [this, self](boost::system::error_code ec, std::size_t length) {
-                                    if (!ec) {
-                                        readHandler(length);
-                                        read_loop();
-                                    }
-                                });
+    void tryStartDaemon() {
+        if(!sendDaemonStarted) {
+            sendDaemonStarted = true;
+            timer->expires_from_now(boost::posix_time::seconds(5));
+            //timer->async_wait(std::bind(&TcpSession::sendDaemonTick, this));
+        }
     }
 
-
+    void readHandler(size_t written);
+    void read_loop();
 public:
     Worker* myWorker;
-    template<class T>
-    void SendPacket(Packet *packet, T &&smart_pointer) {
-        auto self = shared_from_this();
-        boost::asio::async_write(mSocket, boost::asio::buffer(packet -> data(), packet->size()),
-                                 [self, packet, smart_pointer](boost::system::error_code ec, std::size_t l)
-                                 {
-                                     if (!ec) {
-                                         //cout << "Sent!" << endl;
-                                     }
-                                 });
-    }
-    void SendPacket(Packet *packet) {
-        auto self = shared_from_this();
-        boost::asio::async_write(mSocket, boost::asio::buffer(packet -> data(), packet->size()),
-                                 [self, packet](boost::system::error_code ec, std::size_t l)
-                                 {
-                                     if (!ec) {
-                                         cout << "Sent!" << endl;
-                                     }
-                                 });
-    }
+    PBuff* currentBuffer;
+    void sendCurrPBuff();
+    void replacePBuff();
+    Packet beginPacket(size_t size);
+    void endPacket(Packet& p);
+    void writeStaticPacket(StaticPacket& p);
+    PBuff* getPacketBuffer(size_t maxSize);
     TcpSession(tcp::socket socket, Worker* myWorker);
     void BeginCommunication();
     ~TcpSession();
