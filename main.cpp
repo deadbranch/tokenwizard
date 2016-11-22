@@ -17,7 +17,7 @@ bool myEndianness = detectEndianness();
 
 boost::asio::io_service primary_io_service;
 
-UnorderedTokenMap<TOKEN_LENGTH, 5> tokenMap;
+UnorderedTokenMap<TOKEN_LENGTH, MAP_SIZE_EXPONENT> tokenMap;
 HandlerSelector handlerSelector;
 
 StaticPacket tokenDestroyedPacket((char)ServerResponse::tokenDestroyed);
@@ -36,16 +36,7 @@ public:
 };
 int main(int argc, char* argv[]) {
     cout << sizeof(boost::once_flag) << endl;
-    auto ptr = cg.try_set(new C());
-    {
-        auto ptr_get1 = cg.try_get();
-        if(ptr_get1)
-            cg.unsafe_decrease_counter();
-        ptr_get1 = nullptr;
-        auto ptr_get2 = cg.try_get();
-        if(ptr_get2)
-            cg.unsafe_decrease_counter();
-    }
+
     tokenDestroyedPacket.serialize();
     tokenDoesNotExistPacket.serialize();
 

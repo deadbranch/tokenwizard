@@ -7,7 +7,7 @@ void GenTokenCommandHandler::Handle(char *bytes, size_t size, TcpSession &sessio
     char* data = bytes + 1;
     size_t dataLength = size - 1;
     auto ptr = tokenMap.genToken(data, dataLength);
-    cout << "Generated: " << ptr->token << endl;
+    //cout << "Generated: " << ptr->token << endl;
     ptr->writeTokenInfo(sessionContext.getPacketBuffer(TOKEN_LENGTH+8+4));
     //shared_ptr<StaticPacket> infoPtr = ptr->tokenInfo();
     //sessionContext.writeStaticPacket(*infoPtr.get());

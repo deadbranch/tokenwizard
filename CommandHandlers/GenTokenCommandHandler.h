@@ -9,7 +9,7 @@
 template <int tokenLength, int mapSizeExponent>
 class UnorderedTokenMap;
 
-extern UnorderedTokenMap<TOKEN_LENGTH, 5> tokenMap;
+extern UnorderedTokenMap<TOKEN_LENGTH, MAP_SIZE_EXPONENT> tokenMap;
 
 class GenTokenCommandHandler: public CommandHandler {
 public:

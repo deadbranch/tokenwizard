@@ -13,7 +13,6 @@ template <size_t tokenLength>
 class Token {
     boost::once_flag decreaseOnce = BOOST_ONCE_INIT;
 public:
-    void deleteOnce
     StaticPacket* dataPacket;
     char token[tokenLength+7];
     time_t timeToDie;
