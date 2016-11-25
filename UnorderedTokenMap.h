@@ -6,6 +6,7 @@
 #include "ServerResponses.h"
 #include "TokenRecord.h"
 
+#include <cstdlib>
 #include <stdlib.h>
 #include "serialization/StaticPacket.h"
 #include "concurrent-guard/unsafe_concurrent_guard.h"

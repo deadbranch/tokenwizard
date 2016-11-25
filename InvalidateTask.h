@@ -12,8 +12,8 @@ class InvalidateTask {
 public:
     time_t deleteTime;
     TokenString<tokenLength>* tokenString;
-    InvalidateTask(TokenString<tokenLength>* tokenString): tokenString(tokenString) {
-        deleteTime = std::time(0);
+    InvalidateTask(TokenString<tokenLength>* tokenString, uint32_t lifeTime): tokenString(tokenString) {
+        deleteTime = std::time(0) + lifeTime;
     }
     ~InvalidateTask() {
         tokenMap.RemoveToken(tokenString->token);

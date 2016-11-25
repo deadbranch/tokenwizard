@@ -1,7 +1,6 @@
 #ifndef TOKENWIZARD_GENTOKENCOMMANDHANDLER_H
 #define TOKENWIZARD_GENTOKENCOMMANDHANDLER_H
 
-
 #include "../CommandHandler.h"
 #include "../BaseHeader.h"
 #include "../Definitions.h"

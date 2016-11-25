@@ -1,7 +1,3 @@
-//
-// Created by origin on 14.11.16.
-//
-
 #include <thread>
 #include "GetTokenCommandHandler.h"
 #include "../UnorderedTokenMap.h"

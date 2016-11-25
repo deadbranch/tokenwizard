@@ -30,9 +30,20 @@ inline void writeCount(uint32_t count, char* buf) {
     *reinterpret_cast<uint32_t *>(buf) = fixEndianness(count);
 }
 
-inline uint32_t getDeserializedUInt32(char* dataPtr) {
-    assert((reinterpret_cast<intptr_t>(dataPtr) % 4) == 0);
+inline uint32_t getDeserializedUInt32_unsafe(char *dataPtr) {
+    //assert((reinterpret_cast<intptr_t>(dataPtr) % 4) == 0);
     return fixEndianness(*reinterpret_cast<uint32_t *>(dataPtr));
 }
+
+inline uint32_t getDeserializedUInt32(char *dataPtr) {
+    char tmpbuf[4];
+    tmpbuf[0] = dataPtr[0];
+    tmpbuf[1] = dataPtr[1];
+    tmpbuf[2] = dataPtr[2];
+    tmpbuf[3] = dataPtr[3];
+    //assert((reinterpret_cast<intptr_t>(dataPtr) % 4) == 0);
+    return fixEndianness(*reinterpret_cast<uint32_t *>(tmpbuf));
+}
+
 
 #endif

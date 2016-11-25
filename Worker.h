@@ -30,8 +30,8 @@ class Worker {
         timer->async_wait(std::bind(&Worker::gcTick, this));
     }
 public:
-    void pushRemoveTask(TokenString<TOKEN_LENGTH>* tokenString) {
-        removeQueue.emplace(tokenString);
+    void pushRemoveTask(TokenString<TOKEN_LENGTH>* tokenString, size_t lifeTime) {
+        removeQueue.emplace(tokenString, lifeTime);
     }
     queue<InvalidateTask<TOKEN_LENGTH>> removeQueue;
     io_service* workerService;

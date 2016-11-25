@@ -1,17 +1,10 @@
 #include <iostream>
-#include "CommandHandlers/GenTokenCommandHandler.h"
 #include <mutex>
-#include "serialization/BaseSerialization.h"
 #include "TokenServer.h"
 #include "ClientCommands.h"
-#include "UnorderedTokenMap.h"
-#include "Definitions.h"
-#include "ServerResponses.h"
-#include "Int32Encoder.h"
-#include "RandomFiller.h"
-#include "HandlerSelector.h"
 #include "CommandHandlers/GetTokenCommandHandler.h"
-#include <boost/thread/once.hpp>
+#include "CommandHandlers/GenTokenCommandHandler.h"
+#include "CommandHandlers/InvalidateTokenCommandHanler.h"
 
 bool myEndianness = detectEndianness();
 
@@ -20,7 +13,7 @@ boost::asio::io_service primary_io_service;
 UnorderedTokenMap<TOKEN_LENGTH, MAP_SIZE_EXPONENT> tokenMap;
 HandlerSelector handlerSelector;
 
-StaticPacket tokenDestroyedPacket((char)ServerResponse::tokenDestroyed);
+StaticPacket tokenInvalidatedPacket((char)ServerResponse::tokenInvalidated);
 StaticPacket tokenDoesNotExistPacket((char)ServerResponse::tokenDoesNotExist);
 
 volatile char c;
@@ -36,11 +29,15 @@ public:
 };
 
 int main(int argc, char* argv[]) {
-    tokenDestroyedPacket.serialize();
+    tokenInvalidatedPacket.serialize();
     tokenDoesNotExistPacket.serialize();
 
-    handlerSelector.assignHandler((char)ClientCommand::getToken, new GetTokenCommandHandler());
-    handlerSelector.assignHandler((char)ClientCommand::genToken, new GenTokenCommandHandler());
+    handlerSelector.assignHandler((char)ClientCommand::getToken,
+                                  new GetTokenCommandHandler());
+    handlerSelector.assignHandler((char)ClientCommand::genToken,
+                                  new GenTokenCommandHandler());
+    handlerSelector.assignHandler((char)ClientCommand::invalidateToken,
+                                  new InvalidateTokenCommandHanler());
 
     string data = "123456789";
     //auto res = tokenMap.genToken(data.c_str(), data.size());

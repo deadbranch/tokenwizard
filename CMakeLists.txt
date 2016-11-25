@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.6)
 project(tokenwizard)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread -O3")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread -O0")
 
 #list(APPEND CMAKE_MODULE_PATH "FindTBB.cmake")
 #find_package(TBB COMPONENTS tbbmalloc tbbmalloc_proxy tbb_preview)
@@ -31,5 +31,6 @@ add_executable(tokenwizard
         serialization/PacketBuffer.h
         serialization/StaticPacket.h
         InvalidateTask.h
-        TokenString.h)
+        TokenString.h CommandHandlers/InvalidateTokenCommandHanler.cpp CommandHandlers/InvalidateTokenCommandHanler.h)
+
 TARGET_LINK_LIBRARIES (tokenwizard ${Boost_LIBRARIES})
