@@ -2,7 +2,7 @@
 #define TOKENWIZARD_DEFINES_H
 
 #define NETWORK_ENDIANNESS __le
-#define MAP_SIZE_EXPONENT 26 //the number of the elements = 2^mapSizeExponent; range: 0 < MAP_SIZE_EXPONENT < 32
+#define MAP_SIZE_EXPONENT 20 //the number of the elements = 2^mapSizeExponent; range: 0 < MAP_SIZE_EXPONENT < 32
 #define TOKEN_LENGTH 32 //the length of the entire token
 #define TOKEN_TTL 20 //time to live of a token
 #define SEND_INTERVAL 1000

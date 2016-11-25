@@ -42,10 +42,9 @@ public:
                 offset = generateOffset();
             } while (table[offset].is_set());
             t->generateTokenString(offset);
-            concurrent_guard<TokenRecord<tokenLength>>& guard = table[offset];
-            auto ptr = guard.try_set(t);
+            unsafe_concurrent_guard<TokenRecord<tokenLength>>& guard = table[offset];
+            auto ptr = guard.try_set_and_get_unsafe(t);
             if(ptr) {
-
                 return ptr;
             }
             else {
@@ -64,6 +63,17 @@ public:
                 res = nullptr;
         }
         return res;
+    }
+
+    void RemoveToken(char* token) {
+        uint32_t offset = Int32Encoder::decode64Based(token);
+        auto res = table[offset].try_get();
+        if (res) {
+            if((res->tokenString->token == token) || (strcmp(token,  res->tokenString->token) == 0))
+            {
+                table[offset].decrease_unsafe();
+            }
+        }
     }
 };
 

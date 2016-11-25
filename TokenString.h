@@ -22,8 +22,8 @@ public:
         if(mDeleteTwiceFlag.test_and_set(memory_order_acq_rel))
             delete this;
     }
+
     ~TokenString() {
-        cout << "~TS" << endl;
     }
 };
 

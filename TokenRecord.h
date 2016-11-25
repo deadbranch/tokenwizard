@@ -41,6 +41,7 @@ public:
     }
 
     ~TokenRecord() {
+        tokenString->tryDelete();
         delete dataPacket;
     }
 };

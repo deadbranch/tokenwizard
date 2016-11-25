@@ -2,15 +2,22 @@
 #define TOKENWIZARD_REMOVETASK_H
 
 #include <ctime>
+#include "UnorderedTokenMap.h"
 #include "TokenString.h"
+
+extern UnorderedTokenMap<TOKEN_LENGTH, MAP_SIZE_EXPONENT> tokenMap;
 
 template <size_t  tokenLength>
 class InvalidateTask {
 public:
     time_t deleteTime;
-    TokenString* tokenString;
-    InvalidateTask(TokenString tokenString): tokenString(tokenString) {
+    TokenString<tokenLength>* tokenString;
+    InvalidateTask(TokenString<tokenLength>* tokenString): tokenString(tokenString) {
         deleteTime = std::time(0);
+    }
+    ~InvalidateTask() {
+        tokenMap.RemoveToken(tokenString->token);
+        tokenString->tryDelete();
     }
 };
 

@@ -36,16 +36,6 @@ public:
 };
 
 int main(int argc, char* argv[]) {
-    cout << sizeof(TokenString<25>) << endl;
-
-    auto ts = new TokenString<25>(25);
-    cout << ts->token << endl;
-    ts->tryDelete();
-    cout << ts->token+2 << endl;
-    ts->tryDelete();
-    cout << ts->token << endl;
-
-
     tokenDestroyedPacket.serialize();
     tokenDoesNotExistPacket.serialize();
 
@@ -53,15 +43,12 @@ int main(int argc, char* argv[]) {
     handlerSelector.assignHandler((char)ClientCommand::genToken, new GenTokenCommandHandler());
 
     string data = "123456789";
-    auto res = tokenMap.genToken(data.c_str(), data.size());
-    cout << res->tokenString->token << endl;
-
+    //auto res = tokenMap.genToken(data.c_str(), data.size());
+    //cout << res->tokenString->token << endl;
+    int port;
     try {
-        if (argc != 2) {
-            std::cerr << "Port is non set\n";
-            return 1;
-        }
-        TokenServer tokenServer(primary_io_service, static_cast<short>(std::atoi(argv[1])), 3);
+        port = argc != 2 ? 10200 : std::atoi(argv[1]);
+        TokenServer tokenServer(primary_io_service, port, 3);
         primary_io_service.run();
     }
     catch (std::exception &e) {
