@@ -16,7 +16,7 @@ void GetTokenCommandHandler::Handle(char *bytes, size_t size, TcpSession &sessio
     //cout << token << endl;
     //Handle
     auto ptr = tokenMap.try_get(token);
-    if(ptr && ptr->timeToDie) {
+    if(ptr) {
 //        cout << "token exists" << endl;
         sessionContext.writeStaticPacket(*ptr->dataPacket);
     }

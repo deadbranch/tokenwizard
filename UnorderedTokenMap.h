@@ -4,15 +4,16 @@
 #include "BaseHeader.h"
 #include "misc/IntPow.h"
 #include "ServerResponses.h"
-#include "Token.h"
+#include "TokenRecord.h"
 
 #include <stdlib.h>
 #include "serialization/StaticPacket.h"
+#include "concurrent-guard/unsafe_concurrent_guard.h"
 
 template <int tokenLength, int mapSizeExponent>
 class UnorderedTokenMap {
     unsigned int mSize;
-    concurrent_guard<Token<tokenLength>>* table;
+    unsafe_concurrent_guard<TokenRecord<tokenLength>>* table;
     inline unsigned int generateOffset() {
         static thread_local unsigned int seed = (unsigned int) rand();
         return rand_r(&seed) % mSize;
@@ -21,40 +22,45 @@ class UnorderedTokenMap {
 public:
     UnorderedTokenMap() {
         mSize = int_pow(2, mapSizeExponent);
-        table = new concurrent_guard<Token<tokenLength>>[mSize];
+        table = new unsafe_concurrent_guard<TokenRecord<tokenLength>>[mSize];
     }
-    cg_shared_ptr<Token<tokenLength>> genToken(const char* data, size_t len) {
+
+    cg_shared_ptr<TokenRecord<tokenLength>> genToken(
+            const char* data,
+            size_t len) {
         StaticPacket* dataPacket = new StaticPacket((char)ServerResponse::tokenExists, len);
         memcpy(dataPacket->data()+5, data, len);
         char* d  = dataPacket->data()+5;
         int  a = dataPacket->size();
 
         dataPacket->serialize();
+
+        TokenRecord<tokenLength>* t = new TokenRecord<tokenLength>(dataPacket);
         while(true) {
             uint offset;
             do {
                 offset = generateOffset();
             } while (table[offset].is_set());
-            Token<tokenLength>* t = new Token<tokenLength>(offset, dataPacket);
-            concurrent_guard<Token<tokenLength>>& guard = table[offset];
+            t->generateTokenString(offset);
+            concurrent_guard<TokenRecord<tokenLength>>& guard = table[offset];
             auto ptr = guard.try_set(t);
-            if(ptr){
+            if(ptr) {
+
                 return ptr;
             }
             else {
-                delete t;
                 cout << "unsuccessful set" << endl;
             }
         }
     }
 
-    cg_shared_ptr<Token<tokenLength>> try_get(char* token) {
+    cg_shared_ptr<TokenRecord<tokenLength>> try_get(char* token) {
         uint32_t offset = Int32Encoder::decode64Based(token);
         if(offset >= mSize)
             return nullptr;
         auto res = table[offset].try_get();
         if (res) {
-            if(strcmp(token,  res->token) != 0)
+            if(strcmp(token,  res->tokenString->token) != 0)
                 res = nullptr;
         }
         return res;

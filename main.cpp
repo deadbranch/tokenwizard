@@ -1,5 +1,5 @@
 #include <iostream>
-#include <alien.pm/tokenwizard/CommandHandlers/GenTokenCommandHandler.h>
+#include "CommandHandlers/GenTokenCommandHandler.h"
 #include <mutex>
 #include "serialization/BaseSerialization.h"
 #include "TokenServer.h"
@@ -34,8 +34,17 @@ public:
         cout<< "~C()" <<endl;
     }
 };
+
 int main(int argc, char* argv[]) {
-    cout << sizeof(boost::once_flag) << endl;
+    cout << sizeof(TokenString<25>) << endl;
+
+    auto ts = new TokenString<25>(25);
+    cout << ts->token << endl;
+    ts->tryDelete();
+    cout << ts->token+2 << endl;
+    ts->tryDelete();
+    cout << ts->token << endl;
+
 
     tokenDestroyedPacket.serialize();
     tokenDoesNotExistPacket.serialize();
@@ -45,7 +54,7 @@ int main(int argc, char* argv[]) {
 
     string data = "123456789";
     auto res = tokenMap.genToken(data.c_str(), data.size());
-    cout << res->token << endl;
+    cout << res->tokenString->token << endl;
 
     try {
         if (argc != 2) {
