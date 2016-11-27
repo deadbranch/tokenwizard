@@ -25,7 +25,7 @@ class Worker {
             else
                 break;
         }
-        std::cout << "gcTick" << std::endl;
+        //std::cout << "gcTick" << std::endl;
         timer->expires_at(timer->expires_at() + interval);
         timer->async_wait(std::bind(&Worker::gcTick, this));
     }

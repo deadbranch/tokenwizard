@@ -11,5 +11,6 @@ void GenTokenCommandHandler::Handle(char *bytes, size_t size, TcpSession &sessio
     auto res = tokenMap.genToken(data, dataLength);
     cout << "Generated: " << res->tokenString->token << endl;
     res->writeTokenInfo(sessionContext.getPacketBuffer(TOKEN_LENGTH+8+4));
+    sessionContext.startSendDaemon();
     sessionContext.myWorker->pushRemoveTask(res->tokenString, lifeTime);
 }
