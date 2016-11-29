@@ -38,13 +38,9 @@ int main(int argc, char* argv[]) {
                                   new GenTokenCommandHandler());
     handlerSelector.assignHandler((char)ClientCommand::invalidateToken,
                                   new InvalidateTokenCommandHanler());
-
-    string data = "123456789";
-    //auto res = tokenMap.genToken(data.c_str(), data.size());
-    //cout << res->tokenString->token << endl;
     int port;
     try {
-        port = argc != 2 ? 10200 : std::atoi(argv[1]);
+        port = argc != 2 ? 22200 : std::atoi(argv[1]);
         TokenServer tokenServer(primary_io_service, port, 3);
         primary_io_service.run();
     }

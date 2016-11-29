@@ -12,7 +12,7 @@ using namespace boost::asio;
 class Worker {
     boost::asio::io_service::work* gcWork;
 
-    boost::posix_time::seconds interval; // 1 second
+    boost::posix_time::seconds interval;
     boost::asio::deadline_timer* timer;
     time_t currTime;
     void gcTick() {
@@ -25,7 +25,6 @@ class Worker {
             else
                 break;
         }
-        //std::cout << "gcTick" << std::endl;
         timer->expires_at(timer->expires_at() + interval);
         timer->async_wait(std::bind(&Worker::gcTick, this));
     }

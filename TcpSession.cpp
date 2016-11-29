@@ -69,7 +69,7 @@ void TcpSession::sendCurrPBuff() {
                              [self, pbuff](boost::system::error_code ec, std::size_t l)
                              {
                                  if (!ec) {
-                                     cout << "Sent! " << pbuff->currSize << endl;
+                                     //cout << "Sent! " << pbuff->currSize << endl;
                                  }
                                  delete pbuff;
                              });
@@ -94,7 +94,7 @@ PBuff* TcpSession::getPacketBuffer(size_t maxSize) {
 }
 
 void TcpSession::sendDaemonTick() {
-    std::cout << "sd tick" << std::endl;
+    //std::cout << "sd tick" << std::endl;
     if(currentBuffer->currSize)
         replacePBuff();
     sendDaemonProtector = nullptr;
