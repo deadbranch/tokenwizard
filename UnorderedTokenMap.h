@@ -31,8 +31,6 @@ public:
             size_t len) {
         StaticPacket* dataPacket = new StaticPacket((char)ServerResponse::tokenExists, len);
         memcpy(dataPacket->data()+5, data, len);
-        char* d  = dataPacket->data()+5;
-        int  a = dataPacket->size();
 
         dataPacket->serialize();
 

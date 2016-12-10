@@ -16,18 +16,6 @@ HandlerSelector handlerSelector;
 StaticPacket tokenInvalidatedPacket((char)ServerResponse::tokenInvalidated);
 StaticPacket tokenDoesNotExistPacket((char)ServerResponse::tokenDoesNotExist);
 
-volatile char c;
-
-class C {
-public:
-    C() {
-        cout<< "C()" <<endl;
-    }
-    ~C() {
-        cout<< "~C()" <<endl;
-    }
-};
-
 int main(int argc, char* argv[]) {
     tokenInvalidatedPacket.serialize();
     tokenDoesNotExistPacket.serialize();

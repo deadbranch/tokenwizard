@@ -111,5 +111,6 @@ void TcpSession::startSendDaemon() {
 }
 
 TcpSession::~TcpSession() {
+    delete timer;
     cout << "Session has been destroyed!" << endl;
 }
