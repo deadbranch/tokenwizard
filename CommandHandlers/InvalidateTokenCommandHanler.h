@@ -1,8 +1,8 @@
 #ifndef TOKENWIZARD_INVALIDATETOKENCOMMANDHANLER_H
 #define TOKENWIZARD_INVALIDATETOKENCOMMANDHANLER_H
 
-#include <tokenwizard/CommandHandler.h>
-#include <tokenwizard/Definitions.h>
+#include "../CommandHandler.h"
+#include "../Definitions.h"
 
 template <int tokenLength, int mapSizeExponent>
 class UnorderedTokenMap;

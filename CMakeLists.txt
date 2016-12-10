@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.6)
 project(tokenwizard)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread -O0")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread -O3")
 
 #list(APPEND CMAKE_MODULE_PATH "FindTBB.cmake")
 #find_package(TBB COMPONENTS tbbmalloc tbbmalloc_proxy tbb_preview)
